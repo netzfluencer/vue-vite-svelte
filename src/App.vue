@@ -1,6 +1,8 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + Vite + compiled Svelte" />
+  <main class="flex flex-col items-center">
+    <img alt="Vue logo" src="./assets/logo.png" />
+    <HelloWorld msg="Hello Vue 3 + Vite + compiled Svelte" />
+  </main>
 </template>
 
 <script setup>

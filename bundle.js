@@ -31,16 +31,16 @@ function i(t) {
 function l(t) {
   return document.createTextNode(t)
 }
-let s;
+let a;
 
-function a(t) {
-  s = t
+function s(t) {
+  a = t
 }
 
 function f() {
   const t = function () {
-    if (!s) throw new Error("Function called outside component initialization");
-    return s
+    if (!a) throw new Error("Function called outside component initialization");
+    return a
   }();
   return (n, e) => {
     const o = t.$$.callbacks[n];
@@ -56,14 +56,14 @@ function f() {
   }
 }
 const d = [],
-  p = [],
   $ = [],
+  p = [],
   h = [],
   m = Promise.resolve();
 let g = !1;
 
 function b(t) {
-  $.push(t)
+  p.push(t)
 }
 let y = !1;
 const _ = new Set;
@@ -74,14 +74,14 @@ function x() {
     do {
       for (let t = 0; t < d.length; t += 1) {
         const n = d[t];
-        a(n), v(n.$$)
+        s(n), v(n.$$)
       }
-      for (a(null), d.length = 0; p.length;) p.pop()();
-      for (let t = 0; t < $.length; t += 1) {
-        const n = $[t];
+      for (s(null), d.length = 0; $.length;) $.pop()();
+      for (let t = 0; t < p.length; t += 1) {
+        const n = p[t];
         _.has(n) || (_.add(n), n())
       }
-      $.length = 0
+      p.length = 0
     } while (d.length);
     for (; h.length;) h.pop()();
     g = !1, y = !1, _.clear()
@@ -101,13 +101,13 @@ function k(t, n) {
   -1 === t.$$.dirty[0] && (d.push(t), g || (g = !0, m.then(x)), t.$$.dirty.fill(0)), t.$$.dirty[n / 31 | 0] |= 1 << n % 31
 }
 
-function w(c, u, l, f, d, p, $ = [-1]) {
-  const h = s;
-  a(c);
+function w(c, u, l, f, d, $, p = [-1]) {
+  const h = a;
+  s(c);
   const m = c.$$ = {
     fragment: null,
     ctx: null,
-    props: p,
+    props: $,
     update: t,
     not_equal: d,
     bound: e(),
@@ -117,7 +117,7 @@ function w(c, u, l, f, d, p, $ = [-1]) {
     after_update: [],
     context: new Map(h ? h.$$.context : []),
     callbacks: e(),
-    dirty: $,
+    dirty: p,
     skip_bound: !1
   };
   let g = !1;
@@ -137,30 +137,30 @@ function w(c, u, l, f, d, p, $ = [-1]) {
           fragment: u,
           on_mount: i,
           on_destroy: l,
-          after_update: s
+          after_update: a
         } = t.$$;
         u && u.m(e, c), b((() => {
           const e = i.map(n).filter(r);
           l ? l.push(...e) : o(e), t.$$.on_mount = []
-        })), s.forEach(b)
+        })), a.forEach(b)
       }(c, u.target, u.anchor), x()
   }
   var y, _;
-  a(h)
+  s(h)
 }
 
-function j(n) {
-  let e, o, r, c, s;
+function A(n) {
+  let e, o, r, c, a;
   return {
     c() {
       var t, c, u, i;
       t = "button", e = document.createElement(t), o = l(n[0]), r = l("(Svelte)"), c = e, u = "class", null == (i = "bg-gray-800 rounded-lg text-gray-100") ? c.removeAttribute(u) : c.getAttribute(u) !== i && c.setAttribute(u, i)
     },
     m(t, i) {
-      var l, a, f, d;
+      var l, s, f, d;
       ! function (t, n, e) {
         t.insertBefore(n, e || null)
-      }(t, e, i), u(e, o), u(e, r), c || (l = e, a = "click", f = n[2], l.addEventListener(a, f, d), s = () => l.removeEventListener(a, f, d), c = !0)
+      }(t, e, i), u(e, o), u(e, r), c || (l = e, s = "click", f = n[2], l.addEventListener(s, f, d), a = () => l.removeEventListener(s, f, d), c = !0)
     },
     p(t, [n]) {
       1 & n && function (t, n) {
@@ -170,12 +170,12 @@ function j(n) {
     i: t,
     o: t,
     d(t) {
-      t && i(e), c = !1, s()
+      t && i(e), c = !1, a()
     }
   }
 }
 
-function A(t, n, e) {
+function C(t, n, e) {
   const o = f();
   let {
     label: r
@@ -184,7 +184,7 @@ function A(t, n, e) {
     "label" in t && e(0, r = t.label)
   }, [r, o, () => o("click")]
 }
-export const Btn = class extends class {
+class j extends class {
   $destroy() {
     ! function (t, n) {
       const e = t.$$;
@@ -203,8 +203,11 @@ export const Btn = class extends class {
   }
 } {
   constructor(t) {
-    super(), w(this, t, A, j, c, {
+    super(), w(this, t, C, A, c, {
       label: 0
     })
   }
+}
+export {
+  j as Btn
 };
