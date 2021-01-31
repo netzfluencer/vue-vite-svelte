@@ -1,5 +1,5 @@
 {
-  "name": "vue-smelte",
+  "name": "vue-svelte",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
